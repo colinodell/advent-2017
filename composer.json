@@ -1,0 +1,25 @@
+{
+    "name": "colinodell/advent-2017",
+    "description": "My solutions for http://adventofcode.com/2017",
+    "homepage": "https://github.com/colinodell/advent-2017",
+    "license": "MIT",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Colin O'Dell",
+            "email": "colinodell@gmail.com",
+            "homepage": "https://www.colinodell.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "^4.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "ColinODell\\Advent\\": "src"
+        }
+    }
+}
