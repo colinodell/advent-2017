@@ -12,7 +12,8 @@
         }
     ],
     "require": {
-        "php": ">=7.1"
+        "php": ">=7.1",
+        "graphaware/neo4j-php-client": "^4.8"
     },
     "require-dev": {
         "phpspec/phpspec": "^4.2"
@@ -21,5 +22,8 @@
         "psr-4": {
             "ColinODell\\Advent\\": "src"
         }
+    },
+    "scripts": {
+        "neo4j": "docker run -d -p 7474:7474 -p 7687:7687 --env=NEO4J_AUTH=none neo4j:3.0"
     }
 }
