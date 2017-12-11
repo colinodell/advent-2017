@@ -36,12 +36,25 @@ class Day11
         }
 
         $cnt = count($moves);
-        $furthest = 0;
-        for ($i = $cnt; $i >= $furthest; $i--) {
-            $furthest = max($furthest, $this->getShortestPathSize(array_slice($moves, 0, $i)));
+        $maxes = [];
+        $maxDist = 0;
+        for ($i = $cnt; $i >= $maxDist; $i-=2) {
+            $distance = $this->getShortestPathSize(array_slice($moves, 0, $i));
+            $maxes[$distance][] = $i;
+            $maxDist = max($maxDist, $distance);
+            var_dump([$i => $distance]);
         }
 
-        return $furthest;
+        // Find the largest key
+        $maxDist = max(array_keys($maxes));
+        foreach ($maxes[$maxDist] as $possibleMax) {
+            // Try 1 above and 1 below
+            $distanceOneLess = $this->getShortestPathSize(array_slice($moves, 0, $possibleMax-1));
+            $distanceOneMore = $this->getShortestPathSize(array_slice($moves, 0, $possibleMax+1));
+            $maxDist = max($maxDist, $distanceOneLess, $distanceOneMore);
+        }
+
+        return $maxDist;
     }
 
     private function tryToReduce(array &$moves, $find, $replace)
