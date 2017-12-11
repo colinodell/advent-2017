@@ -37,7 +37,7 @@ class Day11
 
         $cnt = count($moves);
         $furthest = 0;
-        for ($i = $cnt; $i > $cnt; $i++) {
+        for ($i = $cnt; $i >= $furthest; $i--) {
             $furthest = max($furthest, $this->getShortestPathSize(array_slice($moves, 0, $i)));
         }
 
