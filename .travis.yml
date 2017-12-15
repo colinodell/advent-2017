@@ -14,5 +14,5 @@ before_script:
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
 
 script:
-  - vendor/bin/phpspec run
+  - travis_wait 30 vendor/bin/phpspec run
 
